@@ -32,6 +32,8 @@ unsigned long LF(mem_flush)(void* addr)
 
     #if (ISA == ISA_X86)
     _mm_clflush(addr);
+    #else
+    #error Unsupported ISA
     #endif
     
     unsigned long cycles2 = LF(mem_cycles)();
@@ -55,6 +57,8 @@ unsigned long LF(mem_cycles)()
     #if (ISA == ISA_X86)
     unsigned int tmp = 0;
     cycles = __rdtscp(&tmp);
+    #else
+    #error Unsupported ISA
     #endif
 
     return (unsigned long) cycles;
