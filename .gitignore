@@ -1,0 +1,11 @@
+# object files, shared libraries, static libraries
+*.o
+*.so
+*.a
+
+# output binaries
+cache
+timing
+flush_reload
+spectre_v1
+
