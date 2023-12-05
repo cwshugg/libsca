@@ -2,14 +2,18 @@
 //
 //      Connor Shugg
 
+// Standard imports
+#include <stdlib.h>
+
+// Local imports
+#include "isa.h"
+#include "mem.h"
+#include "config.h"
+
 // ISA-specific imports
 #if (ISA == ISA_X86)
 #include <x86intrin.h>
 #endif
-
-// Local imports
-#include "mem.h"
-#include "config.h"
 
 
 // =========================== Memory Allocation ============================ //
@@ -33,7 +37,7 @@ unsigned long LF(mem_flush)(void* addr)
     #if (ISA == ISA_X86)
     _mm_clflush(addr);
     #else
-    #error Unsupported ISA
+    #error "Unsupported ISA"
     #endif
     
     unsigned long cycles2 = LF(mem_cycles)();
@@ -58,7 +62,7 @@ unsigned long LF(mem_cycles)()
     unsigned int tmp = 0;
     cycles = __rdtscp(&tmp);
     #else
-    #error Unsupported ISA
+    #error "Unsupported ISA"
     #endif
 
     return (unsigned long) cycles;

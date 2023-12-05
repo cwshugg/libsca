@@ -25,6 +25,7 @@
 #define ISA_NAME_ARM    "arm"
 #define ISA_NAME_MIPS   "mips"
 
+
 // ====================== Pre-Processing ISA Detection ====================== //
 #if defined(__x86_64__) || defined(_M_X64)
     #define ISA ISA_X86
@@ -56,7 +57,7 @@
     #define ISA_NAME ISA_NAME_ARM
     #define ISA_VERSION 5
     #define ISA_BITS 32
-#elif defined(__ARM_ARCH_6T2_) || defined(__ARM_ARCH_6T2_) defined(__ARM_ARCH_6__) || \
+#elif defined(__ARM_ARCH_6T2_) || defined(__ARM_ARCH_6T2_) || defined(__ARM_ARCH_6__) || \
       defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6Z__) || \
       defined(__ARM_ARCH_6ZK__)
     #define ISA ISA_ARM
